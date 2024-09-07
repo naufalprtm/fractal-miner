@@ -1,0 +1,8 @@
+# Ignore curl build folder
+curl-7.83.1/
+
+# Ignore vcpkg folder
+vcpkg/
+
+# Ignore config.json file
+config.json
