@@ -13,7 +13,7 @@ Fractal Miner is a CUDA-based mining application that performs hashing operation
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/fractal-miner.git
+    git clone https://github.com/naufalprtm/fractal-miner.git
     cd fractal-miner
     ```
 
