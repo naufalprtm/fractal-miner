@@ -11,9 +11,9 @@ set(CMAKE_CUDA_ARCHITECTURES 89)
 # Find required packages
 find_package(CURL REQUIRED)
 find_package(nlohmann_json REQUIRED)
-
+find_library(CURL_LIBRARIES NAMES curl PATHS /usr/local/lib)
 # Specify the source files
-set(SOURCES main.cu sha256.cu monitor_gpu_temperature.cu)
+set(SOURCES main.cu sha256.cu monitor_gpu_temperature.cu mining_rpc.cpp benchmark.cu)
 
 # Create the executable
 add_executable(fractal-miner ${SOURCES})

@@ -1,5 +1,6 @@
 {
-    "pool_url": "stratum+tcp://pool-solo-t1.fairpool.network:3333",
-    "user_name": "your_username",
-    "password": ""
+    "rpc_url": "http://IP:PORT", 
+    "user_name": "test", 
+    "password": "test",
+    "address": "bc1pxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 }

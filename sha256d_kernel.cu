@@ -1,26 +1,34 @@
 #include "sha256.h"
 #include <nvml.h>
 
-__global__ void sha256d_kernel(const uint8_t *input, uint8_t *output) {
+__global__ void sha256d_kernel(const uint8_t *input, uint8_t *output, int num_hashes) {
     __shared__ uint8_t shared_input[64];
     __shared__ uint8_t shared_output[32];
 
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+
+    // Ensure we don't exceed the number of hashes
+    if (idx >= num_hashes) return;
+
     // Copy input to shared memory
     if (threadIdx.x == 0) {
-        for (int i = 0; i < 64; ++i)
-            shared_input[i] = input[i];
+        for (int i = 0; i < 64; ++i) {
+            shared_input[i] = input[i];  // Adjust if accessing multiple inputs
+        }
     }
     __syncthreads();
 
     uint8_t temp[32]; // Temporary storage for SHA256 output
 
+    // Perform SHA256d hashing
     sha256(shared_input, temp);   // First SHA256
-    sha256(temp, shared_output);  // Second SHA256 (SHA256d)
+    sha256(temp, shared_output);   // Second SHA256 (SHA256d)
 
-    // Copy result to output
+    // Write result to output
     if (threadIdx.x == 0) {
-        for (int i = 0; i < 32; ++i)
-            output[i] = shared_output[i];
+        for (int i = 0; i < 32; ++i) {
+            output[idx * 32 + i] = shared_output[i]; // Each thread writes its output
+        }
     }
 }
 
@@ -45,7 +53,7 @@ void monitor_gpu_temperature() {
 
     if (temp > 80) {
         printf("Warning: GPU temperature too high! Throttling...\n");
-        // Add throttling code or stop mining process
+        // Implement throttling logic or stop the mining process here
     }
 
     nvmlShutdown();

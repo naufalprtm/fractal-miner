@@ -88,7 +88,7 @@ __device__ void sha256(const uint8_t *input, uint8_t *output) {
     }
 }
 
-__global__ void sha256d_kernel(const uint8_t *input, uint8_t *output) {
+__global__ void sha256d_kernel(const unsigned char* input, unsigned char* output, int num_hashes) {
     __shared__ uint8_t shared_input[64];
     __shared__ uint8_t shared_output[32];
 
