@@ -34,10 +34,9 @@ Fractal Miner is a CUDA-based mining application that performs hashing operation
 3. **Build the project**:
 
     ```bash
-    mkdir build
-    cd build
-    cmake ..
-    make
+    chmod +x install.sh && chmod +x build.sh
+    ./install
+    ./build
     ```
 
 ## Configuration

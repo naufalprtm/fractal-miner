@@ -1,3 +1,4 @@
+#include "monitor_gpu_temperature.h"
 #include <nvml.h>
 #include <cstdio>
 #include <thread>

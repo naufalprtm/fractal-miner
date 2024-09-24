@@ -1,0 +1,3 @@
+/mnt/c/Users/IMBA PC/Desktop/fractal/fractal-miner/build/CMakeFiles/fractal-miner.dir
+/mnt/c/Users/IMBA PC/Desktop/fractal/fractal-miner/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/IMBA PC/Desktop/fractal/fractal-miner/build/CMakeFiles/rebuild_cache.dir

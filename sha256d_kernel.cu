@@ -1,4 +1,4 @@
-#include "sha256.cu"
+#include "sha256.h"
 #include <nvml.h>
 
 __global__ void sha256d_kernel(const uint8_t *input, uint8_t *output) {
