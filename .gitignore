@@ -6,3 +6,6 @@ vcpkg/
 
 # Ignore config.json file
 config.json
+
+# Ignore build folder
+build/
